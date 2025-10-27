@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Service Details | Black Wolves Marketers</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & base */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Inter", sans-serif;
+      }
+      html,
+      body {
+        height: 100%;
+        background: #0d0d0d;
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      a {
+        color: inherit;
+      }
+
+      /* Header */
+      header {
+        padding: 20px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #191919;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), transparent);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+      }
+      header h1 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.4px;
+      }
+      header nav a {
+        color: #cfcfcf;
+        text-decoration: none;
+        margin-left: 22px;
+        font-weight: 600;
+        transition: color 0.18s ease;
+      }
+      header nav a:hover {
+        color: #39c3ef;
+      }
+
+      /* Back button */
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin: 30px 60px 0;
+        padding: 10px 18px;
+        background: #161616;
+        color: #39c3ef;
+        text-decoration: none;
+        border: 1px solid #39c3ef;
+        border-radius: 10px;
+        font-weight: 600;
+        transition: all 0.2s ease;
+        width: fit-content;
+      }
+      .back-btn:hover {
+        background: #39c3ef;
+        color: #fff;
+        transform: translateY(-3px);
+      }
+
+      /* Hero */
+      .hero {
+        text-align: center;
+        padding: 56px 20px 28px;
+      }
+      .hero h2 {
+        font-size: 2.4rem;
+        color: #fff;
+        margin-bottom: 10px;
+        letter-spacing: 0.2px;
+      }
+      .hero p {
+        color: #bfbfbf;
+        max-width: 820px;
+        margin: 0 auto;
+        font-size: 1rem;
+      }
+
+      /* Grid */
+      .service-details {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 28px;
+        padding: 48px 60px 80px;
+      }
+
+      .detail-box {
+        background: linear-gradient(180deg, #0f0f0f 0%, #131313 100%);
+        border: 1px solid #1b1b1b;
+        border-radius: 16px;
+        padding: 26px;
+        transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1),
+          border-color 0.18s ease, box-shadow 0.18s ease;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        transform: translateY(14px);
+        animation: fadeUp 0.45s forwards;
+      }
+
+      /* small staggered animation via inline style injection */
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .detail-box h3 {
+        color: #39c3ef;
+        font-size: 1.12rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      .detail-box p {
+        color: #d0d0d0;
+        font-size: 0.95rem;
+        line-height: 1.45;
+      }
+
+      .detail-box:hover {
+        transform: translateY(-8px) scale(1.01);
+        border-color: #39c3ef;
+        box-shadow: 0 12px 28px rgba(255, 59, 59, 0.06);
+      }
+
+      /* small caption under boxes */
+      .detail-sub {
+        margin-top: 12px;
+        font-size: 0.9rem;
+        color: #a9a9a9;
+      }
+
+      footer {
+        text-align: center;
+        color: #888;
+        padding: 36px 0;
+        border-top: 1px solid #191919;
+        font-size: 0.9rem;
+      }
+
+      /* responsive tweaks */
+      @media (max-width: 720px) {
+        header {
+          padding: 16px 18px;
+        }
+        .back-btn {
+          margin: 20px 18px 0;
+          display: inline-block;
+        }
+        .hero {
+          padding: 36px 16px 20px;
+        }
+        .service-details {
+          padding: 26px 16px 60px;
+          gap: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Black Wolves Marketers</h1>
+      <nav>
+        <a href="BlackWolvesMarketers.html">Home</a>
+        <a href="BlackWolvesMarketers.html#services" style="color: #39c3ef"
+          >Services</a
+        >
+        <a href="BlackWolvesMarketers.html#pricing">Pricing</a>
+        <a href="BlackWolvesMarketers.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <!-- Back Button -->
+    <a href="BlackWolvesMarketers.html#services" class="back-btn"
+      >← Back to Services</a
+    >
+
+    <!-- Hero -->
+    <section class="hero">
+      <h2 id="service-title">Loading...</h2>
+      <p id="service-description"></p>
+    </section>
+
+    <!-- Dynamic Service Details -->
+    <section class="service-details" id="service-details"></section>
+
+    <footer>© 2025 Black Wolves Marketers. All rights reserved.</footer>
+
+    <script>
+      /* ====== Services data ======
+       Use these exact keys in your Explore links:
+         ?service=uiux
+         ?service=development
+         ?service=seo
+         ?service=marketing
+         ?service=brand
+         ?service=mobile
+         ?service=analytics
+         ?service=security
+    ================================== */
+
+      const servicesData = {
+        strategyBranding: {
+          title: "Strategy & Branding",
+          description:
+            "We build social-first brand identities that spark recognition and loyalty. From crafting a powerful narrative to defining your digital voice, we make your brand impossible to ignore.",
+          details: [
+            {
+              title: "Brand Strategy",
+              text: "Defining your brand’s mission, tone, and audience positioning to stand out online.",
+            },
+            {
+              title: "Content Identity",
+              text: "Creating a visual and storytelling style that stays consistent across all platforms.",
+            },
+            {
+              title: "Market Insights",
+              text: "Researching trends, competitors, and audience behavior to shape data-driven strategies.",
+            },
+            {
+              title: "Brand Voice Guidelines",
+              text: "Developing a unique voice and messaging framework for posts, captions, and campaigns.",
+            },
+          ],
+        },
+
+        socialMediaMarketing: {
+          title: "Social Media Marketing",
+          description:
+            "We grow your online presence through engaging content, targeted campaigns, and platform-specific strategies that drive real results.",
+          details: [
+            {
+              title: "Platform Strategy",
+              text: "Customized approaches for Instagram, Facebook, LinkedIn, TikTok, and more to maximize reach and engagement.",
+            },
+            {
+              title: "Content Creation",
+              text: "High-quality visuals, captions, and videos tailored to your audience and brand tone.",
+            },
+            {
+              title: "Ad Campaigns",
+              text: "Running data-driven paid ads to boost visibility, followers, and conversions.",
+            },
+            {
+              title: "Analytics & Optimization",
+              text: "Tracking performance metrics and optimizing strategies for consistent growth.",
+            },
+          ],
+        },
+        digitalMarketing: {
+          title: "Digital Marketing",
+          description:
+            "We amplify your brand’s online impact through strategic digital campaigns that attract, engage, and convert your target audience.",
+          details: [
+            {
+              title: "SEO & SEM",
+              text: "Boosting visibility with keyword optimization, Google Ads, and smart search strategies.",
+            },
+            {
+              title: "Email Marketing",
+              text: "Building personalized email campaigns that nurture leads and strengthen customer relationships.",
+            },
+            {
+              title: "Performance Marketing",
+              text: "Driving measurable ROI through data-backed ad campaigns across multiple channels.",
+            },
+            {
+              title: "Analytics & Reporting",
+              text: "Monitoring key metrics to refine campaigns and ensure long-term digital success.",
+            },
+          ],
+        },
+        /* === New ones requested === */
+        influencerMarketing: {
+          title: "Influencer Marketing",
+          description:
+            "We connect brands with authentic voices that inspire trust, boost engagement, and drive real conversions through social influence.",
+          details: [
+            {
+              title: "Influencer Strategy",
+              text: "Identifying the right creators who align with your brand values and audience.",
+            },
+            {
+              title: "Campaign Management",
+              text: "Handling collaborations, content approvals, and communication from start to finish.",
+            },
+            {
+              title: "Performance Tracking",
+              text: "Measuring reach, engagement, and ROI with transparent reports and analytics.",
+            },
+            {
+              title: "Long-Term Partnerships",
+              text: "Building lasting relationships between brands and influencers for sustained impact.",
+            },
+          ],
+        },
+        videoEditing: {
+          title: "Video Editing",
+          description:
+            "We turn raw footage into captivating stories that grab attention, spark emotion, and boost engagement across all platforms.",
+          details: [
+            {
+              title: "Social Media Edits",
+              text: "Dynamic cuts, trending transitions, and sound design tailored for Instagram Reels, TikTok, and YouTube Shorts.",
+            },
+            {
+              title: "Brand & Ad Videos",
+              text: "Polished edits that highlight your brand’s message and convert viewers into customers.",
+            },
+            {
+              title: "Color Grading & Effects",
+              text: "Professional color correction, motion graphics, and smooth effects to elevate visual appeal.",
+            },
+            {
+              title: "Storytelling Focus",
+              text: "Editing that maintains strong pacing, emotional flow, and audience connection.",
+            },
+          ],
+        },
+        websiteDevelopment: {
+          title: "Website Development",
+          description:
+            "We build fast, responsive, and visually stunning websites that showcase your brand and convert visitors into loyal customers.",
+          details: [
+            {
+              title: "Custom Design & Development",
+              text: "Tailor-made websites built from scratch to match your brand identity and goals.",
+            },
+            {
+              title: "Responsive & SEO-Friendly",
+              text: "Websites optimized for speed, mobile compatibility, and search engine visibility.",
+            },
+            {
+              title: "E-Commerce Solutions",
+              text: "Seamless online stores with secure payments, easy navigation, and smooth user experience.",
+            },
+            {
+              title: "Maintenance & Support",
+              text: "Regular updates, security checks, and performance improvements for long-term reliability.",
+            },
+          ],
+        },
+        appDevelopment: {
+          title: "iOS & Android App Development",
+          description:
+            "We design and develop mobile apps that deliver seamless performance, intuitive design, and meaningful user engagement across platforms.",
+          details: [
+            {
+              title: "Custom App Solutions",
+              text: "Building native and cross-platform apps tailored to your business goals and user needs.",
+            },
+            {
+              title: "UI/UX Optimization",
+              text: "Creating clean, intuitive interfaces that enhance usability and keep users engaged.",
+            },
+            {
+              title: "Performance & Security",
+              text: "Ensuring fast, stable, and secure apps with optimized backend integration.",
+            },
+            {
+              title: "App Store Deployment",
+              text: "Managing the entire publishing process and ensuring smooth launches on App Store and Play Store.",
+            },
+          ],
+        },
+        analyticsGrowth: {
+          title: "Analytics & Growth",
+          description:
+            "We track, analyze, and optimize performance to turn insights into strategies that accelerate growth and maximize ROI.",
+          details: [
+            {
+              title: "Data Tracking",
+              text: "Implementing tools to monitor key metrics across social media, ads, and web platforms.",
+            },
+            {
+              title: "Performance Insights",
+              text: "Translating analytics into actionable steps to improve engagement and conversions.",
+            },
+            {
+              title: "Growth Strategy",
+              text: "Developing scalable plans driven by data to boost reach and audience retention.",
+            },
+            {
+              title: "Monthly Reporting",
+              text: "Providing clear, visual reports that highlight progress, wins, and next steps for growth.",
+            },
+          ],
+        },
+      };
+
+      /* --- Read URL param and render content --- */
+      const params = new URLSearchParams(window.location.search);
+      const key = (params.get("service") || "").toLowerCase(); // normalize
+      const service = servicesData[key];
+
+      const titleEl = document.getElementById("service-title");
+      const descEl = document.getElementById("service-description");
+      const detailsEl = document.getElementById("service-details");
+
+      if (service) {
+        titleEl.textContent = service.title;
+        descEl.textContent = service.description;
+
+        // add boxes with small staggered animation delay
+        detailsEl.innerHTML = service.details
+          .map((d, i) => {
+            // inline style for stagger
+            const delay = i * 80 + 120; // ms
+            return `
+          <div class="detail-box" style="animation-delay:${delay}ms">
+            <h3>${escapeHtml(d.title)}</h3>
+            <p>${escapeHtml(d.text)}</p>
+          </div>
+        `;
+          })
+          .join("");
+      } else {
+        titleEl.textContent = "Service Not Found";
+        descEl.textContent =
+          "The service you requested doesn't exist or the link is incorrect. You will be redirected back to Services.";
+        detailsEl.innerHTML = "";
+        // optional redirect after short delay
+        setTimeout(() => {
+          window.location.href = "services.html";
+        }, 3000);
+      }
+
+      /* Simple HTML escaper to avoid accidental injection if you later change content */
+      function escapeHtml(str) {
+        return String(str)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#39;");
+      }
+    </script>
+  </body>
+</html>
