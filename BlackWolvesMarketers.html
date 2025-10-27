@@ -30,6 +30,14 @@
 
     <!-- Main CSS File -->
     <link href="css/main.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Craftivo
+  * Template URL: https://bootstrapmade.com/Craftivo-bootstrap-portfolio-template/
+  * Updated: Oct 04 2025 with Bootstrap v5.3.8
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
   </head>
 
   <body class="index-page">
@@ -39,7 +47,7 @@
       >
         <a href="index.html" class="logo d-flex align-items-center me-auto">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <!-- <img src="assets/img/logo.webp" alt=""> -->
+          <img src="images/favicon.png" alt="logo" />
           <h1 class="sitename">Black Wolves Marketers</h1>
         </a>
 
@@ -47,9 +55,10 @@
           <ul>
             <li><a href="#hero" class="active">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#Packages">Packages</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#testimonials">Testimonials</a></li>
+
             <li><a href="#contact">Contact</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -62,7 +71,14 @@
     <main class="main">
       <!-- Hero Section -->
       <section id="hero" class="hero section dark-background">
-        <img src="images/profile-bg-5.webp" alt="" data-aos="fade-in" />
+        <!-- Video Background -->
+        <video autoplay muted loop playsinline id="heroVideo">
+          <source src="videos/blackwolvesvideobg.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <!-- Overlay -->
+        <div class="hero-overlay"></div>
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
           <div class="row justify-content-center">
@@ -165,18 +181,91 @@
             </div>
           </div>
         </div>
+
+        <!-- Video Panel -->
+        <div class="container mt-5" data-aos="fade-up" data-aos-delay="300">
+          <div
+            class="video-wrapper position-relative rounded-4 shadow overflow-hidden"
+          >
+            <video
+              id="aboutVideo"
+              class="w-100 rounded-4"
+              autoplay
+              muted
+              playsinline
+            >
+              <source src="videos/aboutvideo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <!-- Video Controls -->
+            <div
+              class="video-controls position-absolute bottom-0 start-0 end-0 p-3 d-flex justify-content-between align-items-center bg-dark bg-opacity-50"
+            >
+              <button
+                id="playPauseBtn"
+                class="btn btn-light btn-sm rounded-circle"
+              >
+                <i class="bi bi-pause-fill"></i>
+              </button>
+              <button id="soundBtn" class="btn btn-light btn-sm rounded-circle">
+                <i class="bi bi-volume-mute-fill"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
       <!-- /About Section -->
 
-      <!-- Pricing Section -->
-      <section id="pricing" class="pricing section">
+      <!-- Video Controls Script -->
+      <script>
+        const video = document.getElementById("aboutVideo");
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const soundBtn = document.getElementById("soundBtn");
+
+        // Play / Pause functionality
+        playPauseBtn.addEventListener("click", () => {
+          if (video.paused) {
+            video.play();
+            playPauseBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+          } else {
+            video.pause();
+            playPauseBtn.innerHTML = '<i class="bi bi-play-fill"></i>';
+          }
+        });
+
+        // Mute / Unmute functionality
+        soundBtn.addEventListener("click", () => {
+          video.muted = !video.muted;
+          soundBtn.innerHTML = video.muted
+            ? '<i class="bi bi-volume-mute-fill"></i>'
+            : '<i class="bi bi-volume-up-fill"></i>';
+        });
+      </script>
+
+      <style>
+        .video-wrapper {
+          aspect-ratio: 16 / 9;
+          background: #000;
+        }
+        .video-controls button {
+          width: 36px;
+          height: 36px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+      </style>
+
+      <!-- Packages Section -->
+      <section id="Packages" class="Packages section">
         <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-          <span class="subtitle">Pricing</span>
+          <span class="subtitle">Packages</span>
           <h2>Our Plans</h2>
           <p>
             Choose the perfect plan that fits your business needs. Simple,
-            transparent pricing built for creativity and growth.
+            transparent Packages built for creativity and growth.
           </p>
         </div>
         <!-- End Section Title -->
@@ -189,15 +278,20 @@
               data-aos="zoom-in"
               data-aos-delay="200"
             >
-              <div class="pricing-box text-center">
-                <h3>Normal</h3>
-                <div class="price"><sup>$</sup>10<span> / month</span></div>
+              <div class="Packages-box text-center">
+                <h3>Standard</h3>
+                <p>
+                  Perfect for small businesses and startups looking to build
+                  their online presence.
+                </p>
+                <div class="price"><sup>₹</sup>9999<span> / month</span></div>
                 <ul>
-                  <li>Basic web design</li>
-                  <li>1 Landing Page</li>
-                  <li>Email Support</li>
-                  <li class="na">Custom App Design</li>
-                  <li class="na">Video Editing</li>
+                  <li>6+ High-Quality Posts</li>
+                  <li>4+ Engaging Reels</li>
+                  <li>10+ Stories</li>
+                  <li>Caption & Hashtag Research</li>
+                  <li>Account Setup & Optimization</li>
+                  <!-- <li class="na">Video Editing</li> -->
                 </ul>
                 <a href="#" class="btn-buy">Get Started</a>
               </div>
@@ -210,15 +304,27 @@
               data-aos="zoom-in"
               data-aos-delay="250"
             >
-              <div class="pricing-box featured text-center">
+              <div class="Packages-box featured text-center">
                 <h3>Pro</h3>
-                <div class="price"><sup>$</sup>49<span> / month</span></div>
+                <p>
+                  Ideal for growing brands ready to scale up visibility and
+                  engagement.
+                </p>
+                <div class="price"><sup>₹</sup>14999<span> / month</span></div>
                 <ul>
-                  <li>Full Website Design</li>
-                  <li>3 Pages + Responsive</li>
-                  <li>Basic App UI</li>
-                  <li>Video Editing Support</li>
-                  <li>Email & Chat Support</li>
+                  <li>12+ Custom Posts</li>
+                  <li>8+ Reels with Professional Editing</li>
+                  <li>18+ Interactive Stories</li>
+                  <li>Captions & Hashtag Research</li>
+                  <li>Google Ads Setup & Management</li>
+                  <li>Script Writing for Videos/Reels</li>
+                  <li>Full Social Media Strategy</li>
+                  <li>Paid Ad Campaigns (Meta, Instagram, Tiktok,etc.)</li>
+                  <li>Community Engagement & DM Handling</li>
+                  <li>Social Media Analytics & Monthly Report</li>
+                  <li>Infographics & Visual Content</li>
+                  <li>Account Setup & Optimization</li>
+                  <li>Thumbnail Design</li>
                 </ul>
                 <a href="#" class="btn-buy">Get Started</a>
               </div>
@@ -231,24 +337,109 @@
               data-aos="zoom-in"
               data-aos-delay="300"
             >
-              <div class="pricing-box text-center">
+              <div class="Packages-box text-center">
                 <h3>Pro Max</h3>
-                <div class="price"><sup>$</sup>99<span> / month</span></div>
+                <p>
+                  Tailored for brands looking to dominate social media with
+                  consistent, high-quality content and deep engagement.
+                </p>
+
+                <div class="price"><sup>₹</sup>24999<span> / month</span></div>
                 <ul>
-                  <li>Custom Web & App Design</li>
-                  <li>Advanced Video Editing</li>
-                  <li>Brand Identity Pack</li>
-                  <li>Priority Support</li>
-                  <li>Unlimited Revisions</li>
+                  <li>20+ Custom Posts</li>
+                  <li>15+ High-Impact Reels</li>
+                  <li>30+ Stories</li>
+                  <li>Captions & Hashtag Research</li>
+                  <li>Google Ads Setup & Optimization</li>
+                  <li>Video Script Writing</li>
+                  <li>Comprehensive Social Media Strategy</li>
+                  <li>Content Calendar Creation</li>
+                  <li>Paid Ad Campaigns (Meta, Instagram, TikTok, etc.)</li>
+                  <li>Influencer Marketing & Collaborations</li>
+                  <li>Community Management & DM Handling</li>
+                  <li>Analytics Reporting & Insights</li>
+                  <li>Infographics & Custom Visuals</li>
+                  <li>Account Setup & Optimization</li>
+                  <li>Brand Theme & Visual Identity</li>
+                  <li>Thumbnail Design</li>
                 </ul>
                 <a href="#" class="btn-buy">Get Started</a>
               </div>
             </div>
             <!-- End Pro Max Plan -->
+
+            <!--  UltraPro Max Plan -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="Packages-box text-center">
+                <h3>Ultra Pro Max</h3>
+                <p>
+                  For premium brands and enterprises that demand 360° digital
+                  dominance and maximum ROI.
+                </p>
+
+                <div class="price"><sup>₹</sup>99999<span> / month</span></div>
+                <ul>
+                  <li>30+ Custom-Branded Posts</li>
+                  <li>30+ Reels with Editing & Voiceover</li>
+                  <li>60+ Stories Across Platforms</li>
+                  <li>Captions & Hashtag Research</li>
+                  <li>Full Google Ads Management</li>
+                  <li>Script Writing for All Visual Content</li>
+                  <li>Advanced Social Media Strategy</li>
+                  <li>Content Calendar (Monthly)</li>
+                  <li>Paid Ad Campaigns on All Major Platforms</li>
+                  <li>Influencer Outreach & Collaboration Management</li>
+                  <li>Community Management & Response Handling</li>
+                  <li>Analytics Dashboards & Monthly Deep-Dive Reports</li>
+                  <li>Infographics, Animations & Visual Storytelling</li>
+                  <li>Brand Theme & Identity Design</li>
+                  <li>Thumbnail Design</li>
+                  <li>Account Setup, Optimization & A/B Testing</li>
+                </ul>
+                <a href="#" class="btn-buy">Get Started</a>
+              </div>
+            </div>
+            <!-- End Ultra Pro Max Plan -->
+
+            <!--  Custom Max Plan -->
+            <div
+              class="col-lg-4 col-md-6"
+              data-aos="zoom-in"
+              data-aos-delay="300"
+            >
+              <div class="Packages-box text-center">
+                <h3>Custom</h3>
+                <p>
+                  Supercharge your marketing with professional creative and tech
+                  support.
+                </p>
+                <!-- 
+                <div class="price"><sup>₹</sup>99999<span> / month</span></div> -->
+                <ul>
+                  <li>📱 Mobile App Development</li>
+                  <li>🌐 Website Design & Development</li>
+                  <li>🎬 Video Editing (YouTube, Reels, Ads)</li>
+                  <li>🖼️ Poster & Flyer Designing</li>
+                  <li>✏️ Logo Designing & Brand Identity</li>
+                  <li>📊 Marketing Strategy Consulting</li>
+                  <li>🎥 Script Writing for Ads & Reels</li>
+                  <li>📣 Captions & Hashtag Planning</li>
+                  <li>🎨 Brand Theme & Visual Consistency</li>
+                  <li>🖼️ Thumbnail Design (YouTube, Reels)</li>
+                  <li>🚀 Account Setup & Branding Optimization</li>
+                </ul>
+                <a href="#" class="btn-buy">Get Started</a>
+              </div>
+            </div>
+            <!-- End Ultra Pro Max Plan -->
           </div>
         </div>
       </section>
-      <!-- /Pricing Section -->
+      <!-- /Packages Section -->
 
       <!-- Services Section -->
       <section id="services" class="services section">
@@ -257,9 +448,10 @@
           <span class="subtitle">Services</span>
           <h2>Services</h2>
           <p>
-            Necessitatibus eius consequatur ex aliquid fuga eum quidem sint
-            consectetur velit. Sed ut perspiciatis unde omnis iste natus error
-            sit voluptatem accusantium doloremque laudantium totam rem aperiam
+            At Black Wolves, we offer a wide range of professional services
+            designed to help your brand grow and stand out. From creative design
+            and web development to digital marketing and strategic consulting,
+            we deliver tailored solutions that drive real results.
           </p>
         </div>
         <!-- End Section Title -->
@@ -275,10 +467,10 @@
                 <div class="icon-wrapper">
                   <i class="bi bi-palette"></i>
                 </div>
-                <h4>Brand Identity</h4>
+                <h4>Strategy & Branding</h4>
                 <p>
-                  Curabitur non nulla sit amet nisl tempus convallis quis ac
-                  lectus vivamus magna.
+                  We craft impactful brand strategies and digital identities
+                  that connect, inspire, and stand out.
                 </p>
                 <a href="service-detail.html?service=brand" class="read-more">
                   <span>Explore</span>
@@ -297,11 +489,12 @@
                 <div class="icon-wrapper">
                   <i class="bi bi-layout-text-window-reverse"></i>
                 </div>
-                <h4>UI/UX Design</h4>
+                <h4>Social Media Marketing</h4>
                 <p>
-                  Vestibulum ac diam sit amet quam vehicula elementum sed sit
-                  amet dui donec rutrum.
+                  We grow brands on Instagram, Facebook, LinkedIn, and TikTok
+                  through creative content and smart strategy.
                 </p>
+
                 <a href="service-detail.html?service=uiux" class="read-more">
                   <span>Explore</span>
                   <i class="bi bi-arrow-right"></i>
@@ -318,10 +511,10 @@
                 <div class="icon-wrapper">
                   <i class="bi bi-code-slash"></i>
                 </div>
-                <h4>Development</h4>
+                <h4>Digital Marketing</h4>
                 <p>
-                  Praesent sapien massa convallis a pellentesque nec egestas non
-                  nisi cras ornare arcu.
+                  We boost your online visibility through SEO, ads, and
+                  campaigns that drive measurable growth.
                 </p>
                 <a
                   href="service-detail.html?service=development"
@@ -342,10 +535,10 @@
                 <div class="icon-wrapper">
                   <i class="bi bi-phone"></i>
                 </div>
-                <h4>Mobile Apps</h4>
+                <h4>Influencer Marketing</h4>
                 <p>
-                  Vivamus suscipit tortor eget felis porttitor volutpat quisque
-                  velit nisi pretium ut lacinia.
+                  We connect your brand with trusted creators to build
+                  awareness, engagement, and authentic growth.
                 </p>
                 <a href="service-detail.html?service=mobile" class="read-more">
                   <span>Explore</span>
@@ -363,10 +556,10 @@
                 <div class="icon-wrapper">
                   <i class="bi bi-megaphone"></i>
                 </div>
-                <h4>Digital Marketing</h4>
+                <h4>Video Editing</h4>
                 <p>
-                  Nulla porttitor accumsan tincidunt curabitur aliquet quam id
-                  dui posuere blandit mauris.
+                  We craft engaging edits with smooth transitions, sound design,
+                  and storytelling that captivate viewers.
                 </p>
                 <a
                   href="service-detail.html?service=marketing"
@@ -387,11 +580,12 @@
                 <div class="icon-wrapper">
                   <i class="bi bi-search"></i>
                 </div>
-                <h4>SEO Services</h4>
+                <h4>Website Development</h4>
                 <p>
-                  Pellentesque in ipsum id orci porta dapibus donec sollicitudin
-                  molestie malesuada proin.
+                  We build fast, responsive websites that reflect your brand and
+                  convert visitors into loyal customers.
                 </p>
+
                 <a href="service-detail.html?service=seo" class="read-more">
                   <span>Explore</span>
                   <i class="bi bi-arrow-right"></i>
@@ -408,10 +602,10 @@
                 <div class="icon-wrapper">
                   <i class="bi bi-graph-up-arrow"></i>
                 </div>
-                <h4>Analytics</h4>
+                <h4>iOS & Android App Development</h4>
                 <p>
-                  Sed porttitor lectus nibh curabitur arcu erat accumsan id
-                  imperdiet et porttitor at sem.
+                  We design and develop seamless, high-performing mobile apps
+                  that engage users across all platforms.
                 </p>
                 <a
                   href="service-detail.html?service=analytics"
@@ -432,11 +626,12 @@
                 <div class="icon-wrapper">
                   <i class="bi bi-shield-check"></i>
                 </div>
-                <h4>Security</h4>
+                <h4>Analytics & Growth</h4>
                 <p>
-                  Vivamus magna justo lacinia eget consectetur sed convallis at
-                  tellus mauris blandit aliquet.
+                  We analyze data and craft strategies that turn insights into
+                  measurable growth and stronger performance.
                 </p>
+
                 <a
                   href="service-detail.html?service=security"
                   class="read-more"
@@ -741,47 +936,66 @@
       </section>
       <!-- /Testimonials Section -->
 
-      <!-- Section Title -->
+      <!-- Contact Section -->
       <section id="contact" class="contact section">
+        <!-- Section Title -->
         <div class="container section-title" data-aos="fade-up">
-          <span class="subtitle">Contact Us</span>
-          <h2>Get In Touch</h2>
+          <span class="subtitle">Contact</span>
+          <h2>Contact</h2>
           <p>
-            Have questions about our social media services or want to
-            collaborate? Fill out the form below and our team will reach out
-            soon.
+            Let’s bring your ideas to life! Send us a message and we’ll get back
+            to you soon.
           </p>
         </div>
-        <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <!-- End Section Title -->
+
+        <div class="container">
           <div class="row gy-4">
-            <!-- Contact Info -->
             <div class="col-lg-4">
               <div class="info-item">
-                <div class="icon-wrapper"><i class="bi bi-geo-alt"></i></div>
+                <div class="icon-wrapper">
+                  <i class="bi bi-whatsapp"></i>
+                </div>
                 <div>
-                  <h3>Address</h3>
-                  <p>2847 Oak Street, San Francisco, CA 94102</p>
+                  <h3>WhatsApp Us</h3>
+                  <p>
+                    <a
+                      href="https://wa.me/919876543210"
+                      target="_blank"
+                      style="text-decoration: none; color: inherit"
+                    >
+                      +91 98765 43210
+                    </a>
+                  </p>
                 </div>
               </div>
+
               <div class="info-item">
-                <div class="icon-wrapper"><i class="bi bi-telephone"></i></div>
+                <div class="icon-wrapper">
+                  <i class="bi bi-telephone"></i>
+                </div>
                 <div>
                   <h3>Call Us</h3>
-                  <p>+1 (555) 234-5678</p>
+                  <p><a href="tel:+15552345678">+1 (555) 234-5678</a></p>
                 </div>
               </div>
+
               <div class="info-item">
-                <div class="icon-wrapper"><i class="bi bi-envelope"></i></div>
+                <div class="icon-wrapper">
+                  <i class="bi bi-envelope"></i>
+                </div>
                 <div>
                   <h3>Email Us</h3>
                   <p>
-                    <a href="mailto:hello@youragency.com"
-                      >hello@youragency.com</a
+                    <a href="mailto:blackwolvesagency@gmail.com"
+                      >blackwolvesagency@gmail.com</a
                     >
                   </p>
                 </div>
               </div>
             </div>
+
+            <!-- Contact Section -->
             <!-- Contact Form -->
             <div class="col-lg-8">
               <form id="contact-form" class="php-email-form">
@@ -828,7 +1042,7 @@
                     <select
                       id="service"
                       name="service"
-                      class="form-select"
+                      class="form-control"
                       required
                     >
                       <option value="">Select Service</option>
@@ -857,133 +1071,131 @@
                 </div>
               </form>
             </div>
+
+            <!-- Contact Section -->
+
+            <footer id="footer" class="footer">
+              <div class="container footer-top">
+                <div class="row gy-4">
+                  <div class="col-lg-5 col-md-12 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                      <span class="sitename">Black Wolves Marketers</span>
+                    </a>
+                    <p>
+                      We are not just a digital agency — we’re a pack of
+                      visionaries, creators, and strategists who thrive on
+                      innovation. At Black Wolves Marketers, our mission is to
+                      empower brands to dominate their digital landscape through
+                      creativity, precision, and bold storytelling.
+                    </p>
+                    <div class="social-links d-flex mt-4">
+                      <a href=""><i class="bi bi-twitter-x"></i></a>
+                      <a href=""><i class="bi bi-facebook"></i></a>
+                      <a href=""><i class="bi bi-instagram"></i></a>
+                      <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-2 col-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                      <li><a href="#">Home</a></li>
+                      <li><a href="#">About us</a></li>
+                      <li><a href="#">Services</a></li>
+                      <li><a href="#">Terms of service</a></li>
+                      <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                  </div>
+
+                  <div class="col-lg-2 col-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                      <li><a href="#">Web Design</a></li>
+                      <li><a href="#">Web Development</a></li>
+                      <li><a href="#">Product Management</a></li>
+                      <li><a href="#">Marketing</a></li>
+                      <li><a href="#">Graphic Design</a></li>
+                    </ul>
+                  </div>
+
+                  <div
+                    class="col-lg-3 col-md-12 footer-contact text-center text-md-start"
+                  >
+                    <h4>Contact Us</h4>
+
+                    <p class="mt-4">
+                      <strong>WhatsApp:</strong>
+                      <a
+                        href="https://wa.me/155895548855"
+                        target="_blank"
+                        class="whatsapp-link"
+                      >
+                        +1 5589 55488 55
+                      </a>
+                    </p>
+                    <p class="mt-2">
+                      <strong>Phone:</strong>
+                      <a href="tel:+919876543210" class="phone-link">
+                        +91 98765 43210
+                      </a>
+                    </p>
+                    <p class="mt-2">
+                      <strong>Email:</strong>
+                      <a
+                        href="mailto:contact@yourdomain.com?subject=Inquiry%20from%20Website&body=Hi%2C%20I%27m%20interested%20in%20your%20services."
+                        class="email-link"
+                      >
+                        blackwolvesagency@gmail.com
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="container copyright text-center mt-4">
+                <p>
+                  © <span>Copyright 2025</span>
+                  <strong class="px-1 sitename">Black Wolves Marketers</strong>
+                  <span>All Rights Reserved</span>
+                </p>
+              </div>
+            </footer>
+
+            <!-- Scroll Top -->
+            <a
+              href="#"
+              id="scroll-top"
+              class="scroll-top d-flex align-items-center justify-content-center"
+              ><i class="bi bi-arrow-up-short"></i
+            ></a>
+
+            <!-- Preloader -->
+            <div id="preloader"></div>
+
+            <!-- Vendor JS Files -->
+            <script data-cfasync="false" src="js/email-decode.min.js"></script>
+            <script src="js/bootstrap.bundle.min.js"></script>
+            <script src="js/validate.js"></script>
+            <script src="js/aos.js"></script>
+            <script src="js/typed.umd.js"></script>
+            <script src="js/noframework.waypoints.js"></script>
+            <script src="js/glightbox.min.js"></script>
+            <script src="js/imagesloaded.pkgd.min.js"></script>
+            <script src="js/isotope.pkgd.min.js"></script>
+            <script src="js/swiper-bundle.min.js"></script>
+
+            <!-- Main JS File -->
+            <script src="js/main.js"></script>
+
+            <!-- EMAIL JS SCRIPT BELOW -->
+            <script
+              type="text/javascript"
+              src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+            ></script>
+            <script src="js/contact-form.js"></script>
           </div>
         </div>
       </section>
-      <!--/ Section Title -->
-
-      <!-- /Contact Section -->
     </main>
-
-    <footer id="footer" class="footer">
-      <div class="container footer-top">
-        <div class="row gy-4">
-          <div class="col-lg-5 col-md-12 footer-about">
-            <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">Black Wolves Marketers</span>
-            </a>
-            <p>
-              Cras fermentum odio eu feugiat lide par naso tierra. Justo eget
-              nada terra videa magna derita valies darta donna mare fermentum
-              iaculis eu non diam phasellus.
-            </p>
-            <div class="social-links d-flex mt-4">
-              <a href=""><i class="bi bi-twitter-x"></i></a>
-              <a href=""><i class="bi bi-facebook"></i></a>
-              <a href=""><i class="bi bi-instagram"></i></a>
-              <a href=""><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">About us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Terms of service</a></li>
-              <li><a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><a href="#">Web Design</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Management</a></li>
-              <li><a href="#">Marketing</a></li>
-              <li><a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div
-            class="col-lg-3 col-md-12 footer-contact text-center text-md-start"
-          >
-            <h4>Contact Us</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p>United States</p>
-            <p class="mt-4">
-              <strong>WhatsApp:</strong>
-              <a
-                href="https://wa.me/155895548855"
-                target="_blank"
-                class="whatsapp-link"
-              >
-                +1 5589 55488 55
-              </a>
-            </p>
-            <p class="mt-2">
-              <strong>Phone:</strong>
-              <a href="tel:+919876543210" class="phone-link">
-                +91 98765 43210
-              </a>
-            </p>
-            <p class="mt-2">
-              <strong>Email:</strong>
-              <a
-                href="mailto:contact@yourdomain.com?subject=Inquiry%20from%20Website&body=Hi%2C%20I%27m%20interested%20in%20your%20services."
-                class="email-link"
-              >
-                contact@yourdomain.com
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="container copyright text-center mt-4">
-        <p>
-          © <span>Copyright</span>
-          <strong class="px-1 sitename">Black Wolves Marketers</strong>
-          <span>All Rights Reserved</span>
-        </p>
-      </div>
-      <!-- </div> -->
-    </footer>
-
-    <!-- Scroll Top -->
-    <a
-      href="#"
-      id="scroll-top"
-      class="scroll-top d-flex align-items-center justify-content-center"
-      ><i class="bi bi-arrow-up-short"></i
-    ></a>
-
-    <!-- Preloader -->
-    <div id="preloader"></div>
-
-    <!-- Vendor JS Files -->
-    <script data-cfasync="false" src="js/email-decode.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/validate.js"></script>
-    <script src="js/aos.js"></script>
-    <script src="js/typed.umd.js"></script>
-    <script src="js/noframework.waypoints.js"></script>
-    <script src="js/glightbox.min.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-
-    <!-- Main JS File -->
-    <script src="js/main.js"></script>
-
-    <!-- EMAIL JS SCRIPT BELOW -->
-    <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
-    ></script>
-    <script src="js/contact-form.js"></script>
   </body>
 </html>
